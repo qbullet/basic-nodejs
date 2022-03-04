@@ -1,13 +1,17 @@
 import express from 'express'
+import AppRouter from './src/app.router.js'
+import AppMiddleware from './src/app.middleware.js'
 
 const app = express()
 
+app.use(AppMiddleware)
+app.use(AppRouter)
+
 app.get('/', (request, response) => {
-  response.json({
+  response.status(200).json({
     success: true,
     data: {
-      date: new Date(),
-      text: 'Hello'
+      date: new Date()
     }
   })
 })
