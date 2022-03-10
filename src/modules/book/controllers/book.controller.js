@@ -5,6 +5,31 @@ const BookController = {
   getBooks: async (req, res) => {
     try {
       const books = await BookService.getAll({ status: StatusEnum.ACTIVE })
+      // const mapped = books.map((book) => {
+      //   const { name, price } = book
+      //   return { name: `x${name}`, price }
+      // })
+
+      // const db = [
+      //   { orderId: '01', name: 'a', price: 10 },
+      //   { orderId: '01', name: 'b', price: 20 },
+      //   { orderId: '02', name: 'c', price: 30 },
+      //   { orderId: '02', name: 'd', price: 40 }
+      // ]
+
+      // const payloads = []
+
+      // db.forEach((row) => {
+      //   const index = payloads.findIndex((payload) => payload.orderId === row.orderId)
+      //   const { name, price } = row
+      //   if (index === -1) {
+      //     payloads.push({ orderId: row.orderId, bookList: [{name, price}]})
+      //   } 
+        
+      //   if (index > -1 ) {
+      //     payloads[index].bookList.push({name, price})
+      //   }
+      // })
 
       res.status(200).json({
         success: true,
